@@ -1,0 +1,32 @@
+
+{
+  "appId": "e653eed5-25db-4298-979a-b7d935d6f75c",
+  "displayName": "azure-cli-2023-01-26-16-45-32",
+  "name": "e653eed5-25db-4298-979a-b7d935d6f75c",
+  "password": "mY88Q~c~kXN9LWZ5gWNaMfZB6xpVxlEIcuhy4bYh",
+  "tenant": "5a673f75-a58b-414a-81ba-88e76f9b7da4"
+}
+
+
+appId = ARM_CLIENT_ID
+password = ARM_CLIENT_SECRET
+tenant = ARM_TENANT_ID
+
+az account list -o table
+SubscriptionId = ARM_SUBSCRIPTION_ID
+
+# Environment Variables for Terraform Cloud 
+ARM_CLIENT_ID=e653eed5-25db-4298-979a-b7d935d6f75c
+ARM_CLIENT_SECRET=mY88Q~c~kXN9LWZ5gWNaMfZB6xpVxlEIcuhy4bYh
+ARM_TENANT_ID=5a673f75-a58b-414a-81ba-88e76f9b7da4
+ARM_SUBSCRIPTION_ID=93c64270-b7e5-45af-8316-4cda7aff59bf
+
+
+
+# Verify
+az logout
+az account list-locations -o table
+az login --service-principal -u CLIENT_ID -p CLIENT_SECRET --tenant TENANT_ID
+az login --service-principal -u e653eed5-25db-4298-979a-b7d935d6f75c -p mY88Q~c~kXN9LWZ5gWNaMfZB6xpVxlEIcuhy4bYh --tenant 5a673f75-a58b-414a-81ba-88e76f9b7da4
+az account list-locations -o table
+az logout
