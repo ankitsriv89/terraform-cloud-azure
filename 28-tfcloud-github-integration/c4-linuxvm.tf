@@ -32,5 +32,18 @@ resource "azurerm_linux_virtual_machine" "linuxvm1" {
 
   tags = local.common_tags
 
+  # File Provisioner-4:
+  provisioner "file" {
+    source      = "apps/app3"
+    destination = "/tmp"
+    #on_failure  = continue
+  }
   
+
+  provisioner "remote-exec" {
+    inline = [
+      "sleep 120",
+      "sudo cp -rv /tmp/app3 /var/www/html"
+    ]
+  }
 }
