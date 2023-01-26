@@ -32,6 +32,13 @@ resource "azurerm_linux_virtual_machine" "linuxvm1" {
 
   tags = local.common_tags
 
+  connection {
+    type        = "ssh"
+    host        = self.public_ip_address
+    user        = self.admin_username
+    private_key = file("${path.module}/ssh-keys/terraform-azure.pem")
+  }
+  
   # File Provisioner-4:
   provisioner "file" {
     source      = "apps/app3"
