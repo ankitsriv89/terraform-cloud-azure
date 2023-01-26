@@ -8,12 +8,13 @@ locals {
   pip_name     = "${var.business_unit}-${var.environment}-${var.publicip_name}"
   nic_name     = "${var.business_unit}-${var.environment}-${var.network_interface_name}"
   vm_name      = "${var.business_unit}-${var.environment}-${var.virtual_machine_name}"
-  service_name = "test service"
+  service_name = "dev service"
   owner        = "ankit srivastava"
 
   common_tags = {
     Service = local.service_name
     Owner   = local.owner
+    tag1 = "terraform-cloud-github-test"
   }
 
 }
